@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f3f2ed" />
+    <meta name="description" content="Can It Actually Work? Synthesizing Functional CAD Mechanisms." />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <title>FunCAD — Can It Actually Work?</title>
+    <link rel="stylesheet" href="styles.css?v=type-2" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="wordmark" href="#top" aria-label="FunCAD home">
+          <span class="wordmark-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>FunCAD</span>
+        </a>
+        <nav class="nav-links" aria-label="Paper sections">
+          <a href="#introduction">The problem</a>
+          <a href="#harness">Harness</a>
+          <a href="#revision">Revision</a>
+          <a href="#benchmark">Benchmark</a>
+          <a href="#experiments">Experiments</a>
+        </nav>
+        <div class="header-actions">
+          <button class="theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false">
+            <span class="theme-icon" aria-hidden="true">◐</span>
+          </button>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero section-pad">
+          <div class="hero-copy" data-reveal>
+            <p class="eyebrow"><span class="eyebrow-dot"></span> Functional CAD design</p>
+            <h1>Can it actually <em>work?</em></h1>
+            <div class="hero-meta">
+              <p>Anonymous authors</p>
+            </div>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#introduction">See the cases <span>↓</span></a>
+            </div>
+            <nav class="hero-links" aria-label="Project links">
+              <a href="assets/paper.pdf" target="_blank" rel="noreferrer">Paper <span>↗</span></a>
+              <a href="/harness/demo/" target="_blank" rel="noreferrer">Comparison Demo <span>↗</span></a>
+              <span class="pending-link"><span>Code repository</span><b>Pending</b></span>
+              <span class="pending-link"><span>HF dataset</span><b>Pending</b></span>
+            </nav>
+          </div>
+          <figure class="hero-art paper-figure" data-reveal data-delay="120">
+            <div class="hero-frame">
+              <div class="hero-frame-top"><span>Paper Figure 1 / functional CAD design</span><span>01</span></div>
+              <img src="assets/fig1-functional-cad.png" alt="Paper Figure 1: a user request becomes functional goals, a CAD model, simulation feedback, and a printed prototype" />
+            </div>
+            <figcaption class="paper-caption">Figure 1</figcaption>
+          </figure>
+        </section>
+
+        <section id="introduction" class="problem-section section-pad">
+          <div class="problem-lead" data-reveal>
+            <p class="eyebrow"><span class="eyebrow-dot"></span> The problem</p>
+            <h2>A CAD model can look right and still fail.</h2>
+          </div>
+          <div class="case-cards" data-reveal data-delay="120">
+            <article><span>USER REQUEST</span><strong>Reach the rear cup without moving the front cups.</strong></article>
+            <article><span>FUNCTIONAL CASE</span><strong>Open, re-lock, repeat.</strong></article>
+            <article><span>WHAT WE MEASURE</span><strong>Pass behavior, contact, force, and geometry.</strong></article>
+          </div>
+        </section>
+
+        <section class="failure-section section-pad" aria-labelledby="failure-title">
+          <div class="failure-heading" data-reveal>
+            <div>
+              <p class="eyebrow"><span class="eyebrow-dot"></span> The failure cases</p>
+              <h2 id="failure-title">Good 3D performance does not guarantee a working machine.</h2>
+            </div>
+          </div>
+          <figure class="paper-figure paper-figure-wide" data-reveal>
+            <img src="assets/fig7-failures.png" alt="Paper Figure 7: steering blocked in an Astra bicycle and hour hand blocked in an Astra clock" />
+            <figcaption class="paper-caption">Figure 7</figcaption>
+          </figure>
+          <div class="failure-model-grid" data-reveal data-delay="100">
+            <article class="failure-model-card">
+              <div class="failure-card-heading"><span>BM07-B · Astra</span><strong>Steering blocked</strong></div>
+              <div class="failure-viewer" data-failure-model="bicycle" data-model-src="assets/failures/bicycle-failure-detail.glb"><div class="failure-viewer-hint">Drag to orbit · scroll to zoom</div></div>
+            </article>
+            <article class="failure-model-card">
+              <div class="failure-card-heading"><span>BM09-C · Astra</span><strong>Hour hand blocked</strong></div>
+              <div class="failure-viewer" data-failure-model="clock" data-model-src="assets/failures/clock-failure-detail.glb"><div class="failure-viewer-hint">Drag to orbit · scroll to zoom</div></div>
+            </article>
+          </div>
+          <div class="failure-actions" data-reveal>
+            <a class="button button-primary" href="/harness/demo/" target="_blank" rel="noreferrer">Open comparison demo <span>↗</span></a>
+            <span>Inspect full assemblies and replay controls.</span>
+          </div>
+        </section>
+
+        <section id="harness" class="section section-pad dark-section">
+          <div class="section-kicker light" data-reveal>02 / Agentic Harness</div>
+          <div class="harness-intro">
+            <div data-reveal><h2>Geometry is only the start.</h2></div>
+          </div>
+          <figure class="paper-figure paper-figure-wide harness-figure" data-reveal>
+            <img src="assets/fig5-harness.png" alt="Paper Figure 5: FunCAD-Harness connects functional requirements, candidate-specific testbeds, execution, and feedback" />
+            <figcaption class="paper-caption">Figure 5</figcaption>
+          </figure>
+          <div class="loop-track" data-reveal>
+            <div class="loop-line" aria-hidden="true"><span></span></div>
+            <article class="loop-step"><span>01</span><b>Requirements</b></article>
+            <article class="loop-step"><span>02</span><b>Construction</b></article>
+            <article class="loop-step"><span>03</span><b>Test binding</b></article>
+            <article class="loop-step"><span>04</span><b>Execution</b></article>
+            <article class="loop-step"><span>05</span><b>Revision</b></article>
+          </div>
+          <div class="harness-callout" data-reveal>
+            <div class="callout-mark" aria-hidden="true">↻</div>
+            <div><strong>Same function, candidate-specific test.</strong></div>
+          </div>
+        </section>
+
+        <section id="revision" class="section section-pad revision-section">
+          <div class="section-kicker" data-reveal>03 / Revision example</div>
+          <div class="revision-grid">
+            <figure class="paper-figure" data-reveal>
+              <img src="assets/fig8-revision.png" alt="Paper Figure 8: Grok repairs re-locking and local interference in a spring-return door latch" />
+              <figcaption class="paper-caption">Figure 8</figcaption>
+            </figure>
+            <div class="revision-copy" data-reveal data-delay="120">
+              <h2>A first motion is not enough.</h2>
+            </div>
+          </div>
+        </section>
+
+        <section class="video-section section-pad" aria-labelledby="video-title">
+          <div class="video-intro" data-reveal>
+            <p class="eyebrow"><span class="eyebrow-dot"></span> Project video</p>
+            <h2 id="video-title">Watch the mechanisms run.</h2>
+          </div>
+          <figure class="video-frame" data-reveal data-delay="120">
+            <video controls preload="metadata" poster="assets/fig3-benchmark-gallery.png">
+              <source src="assets/mechanical-benchmark-showcase.mp4" type="video/mp4" />
+              Your browser does not support the project video.
+            </video>
+            <figcaption class="paper-caption">Project video</figcaption>
+          </figure>
+        </section>
+
+        <section id="benchmark" class="section section-pad benchmark-section">
+          <div class="section-kicker" data-reveal>04 / FunCADBench</div>
+          <div class="section-heading" data-reveal>
+            <h2>46 mechanism families.</h2>
+          </div>
+          <figure class="paper-figure paper-figure-large" data-reveal>
+            <img src="assets/fig2-taxonomy.png" alt="Paper Figure 2: FunCADBench taxonomy with representative mechanisms" />
+            <figcaption class="paper-caption">Figure 2</figcaption>
+          </figure>
+          <figure class="paper-figure paper-figure-wide" data-reveal>
+            <img src="assets/fig3-benchmark-gallery.png" alt="Paper Figure 3: mechanisms built by LLM agents across all 46 FunCADBench families" />
+            <figcaption class="paper-caption">Figure 3</figcaption>
+          </figure>
+          <div class="benchmark-browser" data-reveal>
+            <div class="benchmark-tools"></div>
+            <div class="filter-row" id="benchmark-filters" role="group" aria-label="Filter mechanism families"></div>
+            <div class="benchmark-count" id="benchmark-count"></div>
+            <div class="benchmark-grid" id="benchmark-grid"></div>
+          </div>
+        </section>
+
+        <section id="experiments" class="section section-pad results-section">
+          <div class="section-kicker" data-reveal>05 / Experiments</div>
+          <div class="section-heading" data-reveal>
+            <h2>Simulation-guided revision improves completion.</h2>
+          </div>
+          <figure class="paper-figure paper-figure-wide result-figure" data-reveal>
+            <img src="assets/fig6-results.png" alt="Paper Figure 6: task success and mechanical demand coverage" />
+            <figcaption class="paper-caption">Figure 6</figcaption>
+          </figure>
+          <div class="results-layout">
+            <div class="bar-chart-card" data-reveal>
+              <div class="card-heading"><span>End-to-end completion</span><span class="chart-note">out of 46 tasks</span></div>
+              <div class="bar-chart" id="workflow-chart"></div>
+              <div class="chart-legend"><span><i class="legend-swatch astra"></i>Astra</span><span><i class="legend-swatch grok"></i>Grok</span></div>
+            </div>
+            <div class="model-table-card" data-reveal data-delay="120">
+              <div class="card-heading"><span>Constructor agents</span><span class="chart-note">full harness</span></div>
+              <div class="agent-table-scroll"><table><thead><tr><th>Constructor / model</th><th>Passed</th><th>Median active time</th><th>Median tokens</th><th>Est. constructor cost</th></tr></thead><tbody id="model-table"></tbody></table></div>
+              <div class="table-footnote">Final evaluation: <b>gpt-6-astra · Codex · Medium</b> for every setting. Grok + history uses up to eight attempts. * Kimi CLI records the requested High setting; its integration exposes no separate reasoning control.</div>
+            </div>
+          </div>
+          <div class="comparison-card" data-reveal>
+            <div class="card-heading"><span>Harness comparisons</span><span class="chart-note">Astra / Grok</span></div>
+            <div class="comparison-grid" id="comparison-grid"></div>
+          </div>
+        </section>
+
+        <section class="stat-strip section-pad" aria-label="Experiment highlights" data-reveal>
+          <div class="stat"><strong>46</strong><span>FunCADBench families</span></div>
+          <div class="stat"><strong>22<span>/46</span></strong><span>Astra · full harness</span></div>
+          <div class="stat"><strong>32<span>/46</span></strong><span>Fable · one attempt</span></div>
+          <div class="stat"><strong>36<span>/46</span></strong><span>Grok · retained history</span></div>
+        </section>
+
+        <section class="section section-pad paper-section conclusion-section">
+          <div class="section-kicker" data-reveal>06 / Resources</div>
+          <div class="two-col">
+            <div data-reveal><h2>From geometric modeling to mechanisms that address practical needs.</h2></div>
+            <div class="section-copy" data-reveal data-delay="100">
+              <div class="resource-links-inline">
+                <a href="assets/paper.pdf" target="_blank" rel="noreferrer">Paper <span>↗</span></a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer section-pad">
+        <a class="wordmark" href="#top"><span class="wordmark-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>FunCAD</span></a>
+        <p>Can It Actually Work? · 2026</p>
+        <a href="#top" class="back-top">Back to top ↑</a>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+    <script type="module" src="failure_viewer.js"></script>
+  </body>
+</html>
